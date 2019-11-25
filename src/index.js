@@ -93,6 +93,13 @@ export default {
     )
   },
 
+  patch (path: string, data: ?{}, options?: {} = {}): OptionsRequest {
+    return ajax(
+      `${this.apiPath}${path}`,
+      merge({}, { method: 'PATCH' }, this.commonOptions, options, { data })
+    )
+  },
+
   put (path: string, data: ?{}, options?: {} = {}): OptionsRequest {
     return ajax(
       `${this.apiPath}${path}`,
