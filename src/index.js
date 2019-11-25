@@ -48,6 +48,11 @@ export function checkStatus (response: any): any {
 }
 
 function ajax (url: string, options: Options): OptionsRequest {
+  // add trailing slash to url if needed
+  if (options.trailingSlash) {
+    url += resourceUrl.endsWith('/') ? '' : '/'
+  }
+
   let fetchMethod = fetch
   let rejectPromise
 
